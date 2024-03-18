@@ -1,0 +1,10 @@
+# editors
+.idea/
+*.DotSettings.user
+.vs/
+
+# artifacts
+*.log
+
+# OS & misc
+.DS_STORE
