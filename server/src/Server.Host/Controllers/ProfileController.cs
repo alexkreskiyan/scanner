@@ -10,7 +10,17 @@ namespace Server.Host.Controllers;
 [Route("api/1.0/[controller]")]
 public class ProfileController : ControllerBase
 {
-    [HttpPost("request")]
+    [HttpPost("parse")]
+    [ProducesResponseType(typeof(ProfileInitResponse), StatusCodes.Status200OK)]
+    public async Task<IActionResult> Parse(
+        [FromBody] ProfileParseRequest request,
+        CancellationToken ct
+    )
+    {
+        return Ok(new ProfileInitResponse());
+    }
+
+    [HttpPost("init")]
     [ProducesResponseType(typeof(ProfileInitResponse), StatusCodes.Status200OK)]
     public async Task<IActionResult> Init(
         [FromBody] ProfileInitRequest request,
