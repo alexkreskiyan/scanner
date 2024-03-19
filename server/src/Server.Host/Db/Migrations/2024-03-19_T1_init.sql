@@ -1,5 +1,1 @@
-CREATE TABLE document_type_configurations
-(
-    id                uuid        NOT NULL PRIMARY KEY,
-    type              text        NOT NULL
-);
+create table document_type_configurations (id uuid not null primary key, type text not null);

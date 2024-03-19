@@ -4,6 +4,7 @@
 .vs/
 
 # artifacts
+node_modules/
 *.log
 
 # OS & misc

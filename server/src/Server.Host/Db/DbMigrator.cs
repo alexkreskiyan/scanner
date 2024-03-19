@@ -8,8 +8,8 @@ public static class DbMigrator
 {
     public static void Migrate(string connectionString, string schema)
     {
-        var result = DeployChanges.To
-            .PostgresqlDatabase(connectionString)
+        var result = DeployChanges
+            .To.PostgresqlDatabase(connectionString)
             .WithTransactionPerScript()
             .WithVariablesDisabled()
             .WithExecutionTimeout(TimeSpan.FromSeconds(30))

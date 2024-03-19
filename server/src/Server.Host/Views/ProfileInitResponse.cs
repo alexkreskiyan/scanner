@@ -1,6 +1,3 @@
 namespace Server.Host.Views;
 
-public class ProfileInitResponse
-{
-    
-}
+public class ProfileInitResponse { }
