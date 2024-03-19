@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{E3420538-370F-4185-B190-614CFF69C1FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CBE19A1D-1C62-468E-ABAF-9A642D0D7683}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Host", "server\src\Server.Host\Server.Host.csproj", "{CF9A1442-1A66-4E49-A553-381325E8106E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF9A1442-1A66-4E49-A553-381325E8106E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF9A1442-1A66-4E49-A553-381325E8106E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF9A1442-1A66-4E49-A553-381325E8106E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF9A1442-1A66-4E49-A553-381325E8106E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CBE19A1D-1C62-468E-ABAF-9A642D0D7683} = {E3420538-370F-4185-B190-614CFF69C1FB}
+		{CF9A1442-1A66-4E49-A553-381325E8106E} = {CBE19A1D-1C62-468E-ABAF-9A642D0D7683}
+	EndGlobalSection
+EndGlobal
