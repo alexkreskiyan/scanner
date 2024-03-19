@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -14,10 +13,10 @@ public class ProfileController : ControllerBase
     [HttpPost("request")]
     [ProducesResponseType(typeof(ProfileInitResponse), StatusCodes.Status200OK)]
     public async Task<IActionResult> Init(
-        [FromBody] ProfileInitRequest model,
-        CancellationToken cancellationToken
+        [FromBody] ProfileInitRequest request,
+        CancellationToken ct
     )
     {
-        throw new NotImplementedException();
+        return Ok(new ProfileInitResponse());
     }
 }
