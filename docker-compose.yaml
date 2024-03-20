@@ -1,0 +1,30 @@
+---
+version: '3.8'
+name: scanner
+services:
+  server:
+    build:
+      context: .
+      dockerfile: server/src/Server.Host/app.dockerfile
+      args:
+        ENV: local
+    image: server
+    restart: on-failure
+    volumes:
+      - ./server/src/Server.Host/settings/:/app/settings/
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+  db:
+    image: postgres:15.4-bullseye
+    restart: on-failure
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: scanner
+      POSTGRES_PASSWORD: scanner
+    volumes:
+      - db:/var/lib/postgresql/data
+volumes:
+  db:

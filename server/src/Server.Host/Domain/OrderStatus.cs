@@ -1,6 +1,6 @@
 namespace Server.Host.Domain;
 
-public enum ApplicationStatus
+public enum OrderStatus
 {
     Undefined = 0,
     AutoProcessing = 1,

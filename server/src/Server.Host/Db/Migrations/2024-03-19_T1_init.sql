@@ -9,7 +9,7 @@ create table document_field_configurations (
 
 create table document_page_configurations (id uuid not null primary key, type text not null);
 
-create table applications (
+create table orders (
     id uuid not null primary key,
     status smallint not null,
     document_types jsonb not null,
@@ -18,9 +18,9 @@ create table applications (
 
 create table documents (
     id uuid not null primary key,
-    application_id uuid not null,
+    order_id uuid not null,
     type_id uuid not null,
-    constraint fk_documents_applications_application_id foreign KEY (application_id) references applications (id) on delete RESTRICT,
+    constraint fk_documents_orders_order_id foreign KEY (order_id) references orders (id) on delete RESTRICT,
     constraint fk_documents_document_type_configurations_type_id foreign KEY (type_id) references document_type_configurations (id) on delete RESTRICT
 );
 

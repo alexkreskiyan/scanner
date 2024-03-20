@@ -1,11 +1,22 @@
+using System;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Server.Host;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder
+    .Configuration.AddJsonFile(Path.Combine("settings", "appsettings.json"), true, false)
+    .AddJsonFile(
+        Path.Combine("settings", $"appsettings.{Environment.GetEnvironmentVariable("ENV")}.json"),
+        true,
+        false
+    )
+    .AddJsonFile(Path.Combine("settings", "appsettings.test.json"), true, false);
+builder.Services.AddSingleton(sp => sp.GetRequiredService<IConfiguration>().Get<Settings>());
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
     serverOptions.ListenAnyIP(5000);

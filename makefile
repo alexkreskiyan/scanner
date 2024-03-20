@@ -16,16 +16,21 @@ server:
 	dotnet build server/src/Server.Host
 	server/src/Server.Host/bin/Debug/net8.0/Server.Host
 
-copy-dev-settings: clear-settings
+configure-dev: clear-settings
 	cp cfg/appsettings.json cfg/appsettings.local.json server/src/Server.Host/settings
 
-copy-test-settings: clear-settings
+configure-test: clear-settings
 	cp cfg/appsettings.json cfg/appsettings.test.json server/src/Server.Host/settings
 	cp cfg/testsettings.json server/tests/Server.Host.Tests/settings
 
 clear-settings:
 	$(call mkdir,server/src/Server.Host/settings)
 	$(call mkdir,server/tests/Server.Host.Tests/settings)
+
+db-drop:
+	docker-compose rm -vfs db
+	docker volume rm -f scanner_db
+	docker-compose up -d db
 
 define mkdir
 	@$(eval dir := $(1))
