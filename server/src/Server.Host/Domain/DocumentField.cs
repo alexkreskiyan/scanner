@@ -5,7 +5,8 @@ namespace Server.Host.Domain;
 public class DocumentField
 {
     public Guid Id { get; private init; }
-    public Guid TypeId { get; set; } = new();
-    public DocumentFieldConfiguration Type { get; set; } = new();
-    public string Value { get; set; } = string.Empty;
+    public Guid DocumentId { get; private init; }
+    public Guid TypeId { get; private init; }
+    public DocumentFieldConfiguration Type { get; private init; } = default!;
+    public string Value { get; private init; } = string.Empty;
 }
