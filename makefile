@@ -14,7 +14,7 @@ test:
 
 server:
 	dotnet build server/src/Server.Host
-	server/src/Server.Host/bin/Debug/net8.0/Server.Host
+	cd server/src/Server.Host && ENV=local ./bin/Debug/net8.0/Server.Host
 
 configure-dev: clear-settings
 	cp cfg/appsettings.json cfg/appsettings.local.json server/src/Server.Host/settings

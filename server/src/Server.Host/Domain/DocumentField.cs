@@ -6,7 +6,6 @@ public class DocumentField
 {
     public Guid Id { get; private init; }
     public Guid DocumentId { get; private init; }
-    public Guid TypeId { get; private init; }
-    public DocumentFieldConfiguration Type { get; private init; } = default!;
+    public string Type { get; private init; } = string.Empty;
     public string Value { get; private init; } = string.Empty;
 }
