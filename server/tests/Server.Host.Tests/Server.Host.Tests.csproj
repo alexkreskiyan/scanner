@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <PackageId>Server.Host.Tests</PackageId>
         <PackageVersion>0.1.0</PackageVersion>
@@ -9,18 +9,19 @@
         <DebugType>portable</DebugType>
         <WarningsAsErrors>true</WarningsAsErrors>
         <IsPackable>false</IsPackable>
-        <Nullable>enable</Nullable>
         <IsTestProject>true</IsTestProject>
-        <PublishReadyToRun>true</PublishReadyToRun>
-        <PublishReadyToRunShowWarnings>true</PublishReadyToRunShowWarnings>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="../../lib/Extensions.Serilog/Extensions.Serilog.csproj" />
+    </ItemGroup>
     <ItemGroup>
         <PackageReference Include="FluentAssertions" Version="6.12.0" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
-        <PackageReference Include="Serilog.Sinks.XUnit" Version="3.0.5" />
-        <PackageReference Include="xunit.abstractions" Version="2.0.3" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+        <PackageReference Include="Serilog.Sinks.XUnit" Version="3.0.5" />
         <PackageReference Include="xunit" Version="2.6.6" />
+        <PackageReference Include="xunit.abstractions" Version="2.0.3" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.5.6" />
     </ItemGroup>
 </Project>

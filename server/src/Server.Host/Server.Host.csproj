@@ -12,13 +12,13 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     <ItemGroup>
+        <ProjectReference Include="../../lib/Extensions.Serilog/Extensions.Serilog.csproj" />
+    </ItemGroup>
+    <ItemGroup>
         <PackageReference Include="dbup-postgresql" Version="5.0.40" />
         <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
         <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-    </ItemGroup>
-    <ItemGroup>
-        <None Update="settings/*" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Db/Migrations/*.sql" />

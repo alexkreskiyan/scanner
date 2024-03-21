@@ -1,7 +1,13 @@
 using System;
+using Extensions.Serilog;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Serilog;
+using Serilog.Events;
 using Xunit.Abstractions;
+using ILogger = Microsoft.Extensions.Logging.ILogger;
 
-namespace Server.Host.Tests;
+namespace Server.Host.Tests.Lib;
 
 public abstract class TestBase
 {
