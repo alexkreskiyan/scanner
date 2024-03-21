@@ -1,4 +1,5 @@
-﻿using Xunit.Abstractions;
+﻿using Server.Host.TestClient;
+using Xunit.Abstractions;
 
 namespace Server.Host.Tests;
 
@@ -7,7 +8,7 @@ public class TestBase : Lib.TestBase
     protected TestBase(ITestOutputHelper outputHelper)
         : base(outputHelper)
     {
-        // Register(services => services.AddTestClient());
+        Register(services => services.AddTestClient());
     }
     //
     // protected Task<AppModule> Connect()
