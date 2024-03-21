@@ -12,6 +12,7 @@ public static class ServiceCollectionExtensions
         // modules
         services.AddScoped<AppModule>();
         services.AddScoped<DictionaryModule>();
+        services.AddScoped<OrderModule>();
 
         services.AddSingleton<IClient>(
             new FluentClient(TestSettings.Current.Url)

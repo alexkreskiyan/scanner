@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
+using Extensions.Data;
 using FluentAssertions;
-using Server.Views;
 
 namespace Server.Host.Tests.Extensions;
 

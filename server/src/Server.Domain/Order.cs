@@ -5,9 +5,9 @@ namespace Server.Domain;
 
 public class Order
 {
-    public Guid Id { get; private init; }
-    public OrderStatus Status { get; private init; }
-    public List<string> DocumentTypes { get; private init; } = new();
-    public List<Guid> Files { get; private init; } = new();
-    public List<Document> Documents { get; private init; } = new();
+    public Guid Id { get; private init; } = Guid.NewGuid();
+    public OrderStatus Status { get; init; }
+    public List<string> DocumentTypes { get; init; } = new();
+    public List<Guid> Files { get; init; } = new();
+    public List<Document> Documents { get; init; } = new();
 }

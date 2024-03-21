@@ -10,6 +10,7 @@ public static class ServicePack
     public static void Register(IServiceCollection services)
     {
         services.AddSingleton<IDictionaryService, DictionaryService>();
+        services.AddSingleton<IOrderService, OrderService>();
     }
 
     public static void Setup(IServiceProvider provider)

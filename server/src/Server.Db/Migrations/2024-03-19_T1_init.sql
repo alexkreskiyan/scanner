@@ -1,8 +1,8 @@
 create table orders (
     id uuid not null primary key,
     status smallint not null,
-    document_types jsonb not null,
-    files jsonb not null
+    document_types text[] not null,
+    files uuid[] not null
 );
 
 create table documents (

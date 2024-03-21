@@ -8,13 +8,15 @@ namespace Server.Host.TestClient.Modules;
 public class AppModule : IAsyncDisposable
 {
     public DictionaryModule Dictionary { get; }
+    public OrderModule Order { get; }
     private AsyncServiceScope? _scope;
     private readonly ILogger<AppModule> _logger;
 
-    public AppModule(DictionaryModule dictionary, ILogger<AppModule> logger)
+    public AppModule(DictionaryModule dictionary, OrderModule order, ILogger<AppModule> logger)
     {
-        _logger = logger;
         Dictionary = dictionary;
+        Order = order;
+        _logger = logger;
     }
 
     public void InitScope(AsyncServiceScope scope)

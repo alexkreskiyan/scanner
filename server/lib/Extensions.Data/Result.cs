@@ -1,18 +1,18 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
-namespace Server.Views;
+namespace Extensions.Data;
 
 public sealed record Result
 {
     public static Result Ok() => new(string.Empty);
 
-    public static Result New(string error) => new(error);
+    public static Result Fail(string error) => new(error);
 
     public static Result<T> Ok<T>(T data)
         where T : notnull => new(data, string.Empty);
 
-    public static Result<T> New<T>(T data, string error)
+    public static Result<T> Fail<T>(T data, string error)
         where T : notnull => new(data, error);
 
     public static Result From<T>(Result<T> result)

@@ -1,8 +1,11 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Extensions.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Server.Application.Services;
+using Server.Domain;
 using Server.Views;
 
 namespace Server.Host.Controllers;
@@ -11,12 +14,24 @@ namespace Server.Host.Controllers;
 [Route("api/1.0/[controller]")]
 public class OrderController : ControllerBase
 {
+    private readonly IOrderService _orderService;
+
+    public OrderController(IOrderService orderService)
+    {
+        _orderService = orderService;
+    }
+
     [HttpPost]
     [ProducesResponseType(typeof(Result<Guid>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(Result<Guid>), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> Create([FromBody] OrderRequest request, CancellationToken ct)
+    public async Task<Result<Guid>> Create([FromBody] OrderRequest request)
     {
-        return Ok(new OrderResponse());
+        var order = new Order
+        {
+            Status = OrderStatus.ManualProcessing,
+            DocumentTypes = request.DocumentTypes
+        };
+        return await _orderService.CreateAsync(order);
     }
 
     [HttpPut("{id:guid}")]

@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <PackageId>Server.Views</PackageId>
+        <PackageId>Extensions.Data</PackageId>
         <PackageVersion>0.1.0</PackageVersion>
-        <Description>Server.Views</Description>
+        <Description>Extensions.Data</Description>
         <Solutions>Scanner</Solutions>
         <TargetFramework>net8.0</TargetFramework>
         <OutputType>Library</OutputType>
@@ -11,7 +11,4 @@
         <IsPackable>false</IsPackable>
         <Nullable>enable</Nullable>
     </PropertyGroup>
-    <ItemGroup>
-        <ProjectReference Include="../../lib/Extensions.Data/Extensions.Data.csproj" />
-    </ItemGroup>
 </Project>
