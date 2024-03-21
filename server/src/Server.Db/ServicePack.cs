@@ -5,7 +5,7 @@ using Server.Domain;
 
 namespace Server.Db;
 
-public static class Services
+public static class ServicePack
 {
     public static void Register(IServiceCollection services)
     {

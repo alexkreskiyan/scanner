@@ -64,7 +64,7 @@ LogBuilder
     )
     .CreateLogger()
     .RegisterTo(builder.Services);
-builder.Services.Register();
+ServicePack.Register(builder.Services);
 
 var app = builder.Build();
 app.MapControllers();
@@ -72,6 +72,6 @@ app.UseRequestLocalization();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseCors(corsPolicyName);
-app.Services.Setup();
+ServicePack.Setup(app.Services);
 
 await app.RunAsync();

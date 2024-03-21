@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Server.Domain;
+using Server.Application.Services;
 using Server.Views;
 
 namespace Server.Host.Controllers;
@@ -11,28 +11,30 @@ namespace Server.Host.Controllers;
 [Route("api/1.0/[controller]")]
 public class DictionaryController : ControllerBase
 {
-    private readonly Settings _settings;
+    private readonly IDictionaryService _dictionaryService;
 
-    public DictionaryController(Settings settings)
+    public DictionaryController(IDictionaryService dictionaryService)
     {
-        _settings = settings;
+        _dictionaryService = dictionaryService;
     }
 
     [HttpGet("document-types")]
-    [ProducesResponseType(typeof(List<string>), StatusCodes.Status200OK)]
-    public List<string> DocumentTypes()
+    [ProducesResponseType(typeof(IReadOnlyCollection<string>), StatusCodes.Status200OK)]
+    public IReadOnlyCollection<string> DocumentTypes()
     {
-        return _settings.DocumentTypes;
+        return _dictionaryService.GetDocumentTypes();
     }
 
     [HttpGet("document-fields")]
     [ProducesResponseType(
-        typeof(Dictionary<string, DocumentFieldConfigurationResponse>),
+        typeof(IReadOnlyDictionary<string, DocumentFieldConfigurationResponse>),
         StatusCodes.Status200OK
     )]
-    public Dictionary<string, DocumentFieldConfigurationResponse> DocumentFields()
+    public IReadOnlyDictionary<string, DocumentFieldConfigurationResponse> DocumentFields()
     {
-        return _settings.DocumentFields.ToDictionary(
+        var fields = _dictionaryService.GetDocumentFields();
+
+        return fields.ToDictionary(
             x => x.Key,
             x => new DocumentFieldConfigurationResponse
             {
@@ -43,9 +45,9 @@ public class DictionaryController : ControllerBase
     }
 
     [HttpGet("document-pages")]
-    [ProducesResponseType(typeof(List<string>), StatusCodes.Status200OK)]
-    public List<string> DocumentPages()
+    [ProducesResponseType(typeof(IReadOnlyCollection<string>), StatusCodes.Status200OK)]
+    public IReadOnlyCollection<string> DocumentPages()
     {
-        return _settings.DocumentPages;
+        return _dictionaryService.GetDocumentPages();
     }
 }
