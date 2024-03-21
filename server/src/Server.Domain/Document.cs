@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Server.Host.Domain;
+namespace Server.Domain;
 
 public class Document
 {

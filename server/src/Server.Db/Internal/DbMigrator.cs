@@ -2,9 +2,9 @@
 using System.Reflection;
 using DbUp;
 
-namespace Server.Host.Db;
+namespace Server.Db.Internal;
 
-public static class DbMigrator
+internal static class DbMigrator
 {
     public static void Migrate(string connectionString, string schema)
     {

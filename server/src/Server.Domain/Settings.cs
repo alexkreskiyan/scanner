@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using Server.Host.Domain;
 
-namespace Server.Host;
+namespace Server.Domain;
 
 public class Settings
 {

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Serilog.Events;
+using Server.Domain;
 using Server.Host;
 
 var builder = WebApplication.CreateBuilder(args);

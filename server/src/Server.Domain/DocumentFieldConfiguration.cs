@@ -1,4 +1,4 @@
-namespace Server.Host.Domain;
+namespace Server.Domain;
 
 public class DocumentFieldConfiguration
 {
