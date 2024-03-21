@@ -1,7 +1,7 @@
 using System.IO;
 using System.Text.Json;
 
-namespace Server.Host.Tests;
+namespace Server.Host.TestClient;
 
 public class TestSettings
 {

@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
+using FluentAssertions;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -13,7 +13,30 @@ public class DictionaryTests : TestBase
     [Fact]
     public async Task DocumentTypes_Available()
     {
-        Logger.LogInformation("Settings: {Settings}", TestSettings.Current);
-        await Task.CompletedTask;
+        var app = await Connect();
+
+        var documentTypes = await app.Dictionary.GetDocumentTypes();
+
+        documentTypes.Should().NotBeEmpty();
+    }
+
+    [Fact]
+    public async Task DocumentFields_Available()
+    {
+        var app = await Connect();
+
+        var documentTypes = await app.Dictionary.GetDocumentFields();
+
+        documentTypes.Should().NotBeEmpty();
+    }
+
+    [Fact]
+    public async Task DocumentPages_Available()
+    {
+        var app = await Connect();
+
+        var documentTypes = await app.Dictionary.GetDocumentPages();
+
+        documentTypes.Should().NotBeEmpty();
     }
 }
