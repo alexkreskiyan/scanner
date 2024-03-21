@@ -1,2 +1,4 @@
 {
+    "url": "http://localhost:5000",
+    "responseTimeout": 1000
 }

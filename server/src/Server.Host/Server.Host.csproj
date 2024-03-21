@@ -25,6 +25,6 @@
         <EmbeddedResource Include="Db/Migrations/*.sql" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="Views\" />
+        <Folder Include="Views\" />
     </ItemGroup>
 </Project>
