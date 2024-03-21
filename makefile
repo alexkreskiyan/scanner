@@ -1,10 +1,10 @@
 setup:
-	dotnet tool restore
-	npm install -E sql-formatter
+	cd server && dotnet tool restore
+	sudo npm install -g -E sql-formatter
 
 format:
-	dotnet csharpier .
-	find . -type f -name '*.sql' | xargs -I% npx sql-formatter % --config .sql-formatter.json --fix
+	cd server && dotnet csharpier .
+	cd server && find . -type f -name '*.sql' | xargs -I% sql-formatter % --config .sql-formatter.json --fix
 
 build:
 	dotnet build -c Release --nologo -v q

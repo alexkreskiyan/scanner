@@ -15,10 +15,7 @@ public class OrderController : ControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(Result<Guid>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(Result<Guid>), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> Create(
-        [FromBody] OrderRequest request,
-        CancellationToken ct
-    )
+    public async Task<IActionResult> Create([FromBody] OrderRequest request, CancellationToken ct)
     {
         return Ok(new OrderResponse());
     }
