@@ -28,4 +28,7 @@
     <ItemGroup>
         <None Update="settings/*" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Client\" />
+    </ItemGroup>
 </Project>
