@@ -1,3 +1,3 @@
-namespace Server.Host.Views;
+namespace Server.Views;
 
 public class OrderResponse { }

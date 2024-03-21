@@ -13,6 +13,7 @@
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="../../lib/Extensions.Serilog/Extensions.Serilog.csproj" />
+        <ProjectReference Include="../Server.Views/Server.Views.csproj" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="dbup-postgresql" Version="5.0.40" />
@@ -22,5 +23,8 @@
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Db/Migrations/*.sql" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Views\" />
     </ItemGroup>
 </Project>

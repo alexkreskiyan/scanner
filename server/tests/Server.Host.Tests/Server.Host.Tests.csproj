@@ -14,6 +14,7 @@
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="../../lib/Extensions.Serilog/Extensions.Serilog.csproj" />
+        <ProjectReference Include="../../src/Server.Views/Server.Views.csproj" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="FluentAssertions" Version="6.12.0" />

@@ -14,21 +14,13 @@ public static class LogBuilder
     public static LoggerConfiguration DefaultConfiguration()
     {
         return new LoggerConfiguration()
-            .MinimumLevel
-            .Override("Microsoft", LogEventLevel.Warning)
-            .MinimumLevel
-            .Is(LogEventLevel.Verbose)
-            .Enrich
-            .With(new RemovePropertiesEnricher("SourceContext"))
-            .Enrich
-            .FromLogContext()
-            .Enrich
-            .WithCorrelationId()
-            .Enrich
-            .WithExceptionDetails()
-            .Enrich
-            .WithThreadId()
-            .Filter
-            .ByExcluding(Matching.FromSource("Microsoft.AspNetCore.StaticFiles"));
+            .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+            .MinimumLevel.Is(LogEventLevel.Verbose)
+            .Enrich.With(new RemovePropertiesEnricher("SourceContext"))
+            .Enrich.FromLogContext()
+            .Enrich.WithCorrelationId()
+            .Enrich.WithExceptionDetails()
+            .Enrich.WithThreadId()
+            .Filter.ByExcluding(Matching.FromSource("Microsoft.AspNetCore.StaticFiles"));
     }
 }

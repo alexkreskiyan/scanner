@@ -54,8 +54,13 @@ builder.Services.AddCors(options =>
 });
 LogBuilder
     .DefaultConfiguration()
-    .WriteTo
-    .Async(sink => sink.Console(LogEventLevel.Information, LogBuilder.OutputTemplate, CultureInfo.InvariantCulture))
+    .WriteTo.Async(sink =>
+        sink.Console(
+            LogEventLevel.Information,
+            LogBuilder.OutputTemplate,
+            CultureInfo.InvariantCulture
+        )
+    )
     .CreateLogger()
     .RegisterTo(builder.Services);
 builder.Services.Register();

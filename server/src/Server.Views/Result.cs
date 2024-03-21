@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
-namespace Server.Host.Domain;
+namespace Server.Views;
 
 public sealed record Result
 {

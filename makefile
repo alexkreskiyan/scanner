@@ -7,10 +7,10 @@ format:
 	cd server && find . -type f -name '*.sql' | xargs -I% sql-formatter % --config .sql-formatter.json --fix
 
 build:
-	dotnet build -c Release --nologo -v q
+	dotnet build server/Scanner.sln -c Release --nologo -v q
 
 test:
-	dotnet test -c Release --no-build --nologo -v q
+	dotnet test server/Scanner.sln -c Release --no-build --nologo -v q
 
 server:
 	dotnet build server/src/Server.Host
