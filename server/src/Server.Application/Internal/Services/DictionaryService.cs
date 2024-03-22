@@ -13,18 +13,8 @@ internal class DictionaryService : IDictionaryService
         _settings = settings;
     }
 
-    public IReadOnlyCollection<string> GetDocumentTypes()
+    public IReadOnlyDictionary<string, DocumentConfiguration> GetDocuments()
     {
-        return _settings.DocumentTypes;
-    }
-
-    public IReadOnlyDictionary<string, DocumentFieldConfiguration> GetDocumentFields()
-    {
-        return _settings.DocumentFields;
-    }
-
-    public IReadOnlyCollection<string> GetDocumentPages()
-    {
-        return _settings.DocumentPages;
+        return _settings.Documents;
     }
 }

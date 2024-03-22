@@ -11,32 +11,28 @@ public class DictionaryTests : TestBase
         : base(outputHelper) { }
 
     [Fact]
-    public async Task DocumentTypes_Available()
+    public async Task Documents_Available()
     {
         var app = await Connect();
 
-        var documentTypes = await app.Dictionary.GetDocumentTypes();
+        var documents = await app.Dictionary.GetDocuments();
 
-        documentTypes.Should().NotBeEmpty();
-    }
-
-    [Fact]
-    public async Task DocumentFields_Available()
-    {
-        var app = await Connect();
-
-        var documentTypes = await app.Dictionary.GetDocumentFields();
-
-        documentTypes.Should().NotBeEmpty();
-    }
-
-    [Fact]
-    public async Task DocumentPages_Available()
-    {
-        var app = await Connect();
-
-        var documentTypes = await app.Dictionary.GetDocumentPages();
-
-        documentTypes.Should().NotBeEmpty();
+        documents.Should().NotBeEmpty();
+        documents
+            .Should()
+            .AllSatisfy(doc =>
+            {
+                doc.Key.Should().NotBeEmpty();
+                doc.Value.Should().NotBeNull();
+                doc.Value.Fields.Should()
+                    .AllSatisfy(field =>
+                    {
+                        field.Key.Should().NotBeEmpty();
+                        field.Value.Should().NotBeNull();
+                        field.Value.Label.Should().NotBeEmpty();
+                        field.Value.DataType.Should().NotBeEmpty();
+                    });
+                doc.Value.Pages.Should().AllSatisfy(page => page.Should().NotBeEmpty());
+            });
     }
 }

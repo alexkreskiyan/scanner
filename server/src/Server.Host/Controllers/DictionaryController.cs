@@ -18,36 +18,30 @@ public class DictionaryController : ControllerBase
         _dictionaryService = dictionaryService;
     }
 
-    [HttpGet("document-types")]
-    [ProducesResponseType(typeof(IReadOnlyCollection<string>), StatusCodes.Status200OK)]
-    public IReadOnlyCollection<string> DocumentTypes()
-    {
-        return _dictionaryService.GetDocumentTypes();
-    }
-
-    [HttpGet("document-fields")]
+    [HttpGet("documents")]
     [ProducesResponseType(
-        typeof(IReadOnlyDictionary<string, DocumentFieldConfigurationResponse>),
+        typeof(IReadOnlyDictionary<string, DocumentConfigurationResponse>),
         StatusCodes.Status200OK
     )]
-    public IReadOnlyDictionary<string, DocumentFieldConfigurationResponse> DocumentFields()
+    public IReadOnlyDictionary<string, DocumentConfigurationResponse> Documents()
     {
-        var fields = _dictionaryService.GetDocumentFields();
+        var documents = _dictionaryService.GetDocuments();
 
-        return fields.ToDictionary(
+        return documents.ToDictionary(
             x => x.Key,
-            x => new DocumentFieldConfigurationResponse
+            x => new DocumentConfigurationResponse
             {
-                Label = x.Value.Label,
-                DataType = x.Value.DataType
+                Fields = x.Value.Fields.ToDictionary(
+                    f => f.Key,
+                    f => new DocumentFieldConfigurationResponse
+                    {
+                        Label = f.Value.Label,
+                        DataType = f.Value.DataType,
+                        DisplayOrder = f.Value.DisplayOrder
+                    }
+                ),
+                Pages = x.Value.Pages
             }
         );
-    }
-
-    [HttpGet("document-pages")]
-    [ProducesResponseType(typeof(IReadOnlyCollection<string>), StatusCodes.Status200OK)]
-    public IReadOnlyCollection<string> DocumentPages()
-    {
-        return _dictionaryService.GetDocumentPages();
     }
 }
